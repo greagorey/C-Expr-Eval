@@ -13,8 +13,18 @@
  * PRIVATE TYPE DECLARATION
  ********************/
 
+struct  Node {
+    int data;
+    struct Node* next;
+};
+typedef struct Node Node_t;
 
 
+struct LinkedList {
+   Node_t* head;
+   
+};
+typedef struct LinkedList IntStack_t;
 
 /*********************
  *  PUBLIC INTERFACE

@@ -18,7 +18,9 @@ int main( )
    int v;
 
    IntStack_t istack = istackCreate();
+
    assert(istackIsEmpty(istack));
+
    istackPush(&istack, 1);
    istackPush(&istack, 2);
    istackPush(&istack, 3);
@@ -51,4 +53,5 @@ int main( )
    istackPrint(istack);
 
    istackDestroy(&istack);
+   
 }
