@@ -13,18 +13,18 @@
  * PRIVATE TYPE DECLARATION
  ********************/
 
-struct  Node {
+struct  Node2 {
     int data;
-    struct Node* next;
+    struct Node2* next;
 };
-typedef struct Node Node_t;
+typedef struct Node2 Node2_t;
 
 
-struct LinkedList {
-   Node_t* head;
+struct Intstack {
+   Node2_t* head;
    
 };
-typedef struct LinkedList IntStack_t;
+typedef struct Intstack IntStack_t;
 
 /*********************
  *  PUBLIC INTERFACE

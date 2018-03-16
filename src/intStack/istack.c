@@ -6,16 +6,16 @@
 
 #include "istack.h"
 
-Node_t* nodeCreate(int value) {
-    Node_t* node = malloc(sizeof(Node_t));
-    node->data = value;
-    node->next = NULL;
-    return node;
+Node2_t* Node2Create(int value) {
+    Node2_t* Node2 = malloc(sizeof(Node2_t));
+    Node2->data = value;
+    Node2->next = NULL;
+    return Node2;
 }
 
 IntStack_t istackCreate( )
 {
-   Node_t* dummy = nodeCreate(INT_MIN);
+   Node2_t* dummy = Node2Create(INT_MIN);
    IntStack_t stack = {dummy};
    
 }
@@ -30,24 +30,24 @@ bool istackIsEmpty( IntStack_t stack )
 
 int istackPush( IntStack_t *stack, int item)
 {
-    Node_t* newNode = nodeCreate(item);
+    Node2_t* newNode2 = Node2Create(item);
     
     if(stack->head == NULL)
     {
-        newNode->next = NULL;
-        stack->head = newNode;
+        newNode2->next = NULL;
+        stack->head = newNode2;
     }
     else
     {
-        newNode->next = stack->head;
-        stack->head = newNode;
+        newNode2->next = stack->head;
+        stack->head = newNode2;
     }
 }
 
 
 void istackPrint( IntStack_t stack  )
 {
-    Node_t* cur;
+    Node2_t* cur;
     cur = stack.head;
     
     if(stack.head == NULL)
@@ -67,7 +67,7 @@ void istackPrint( IntStack_t stack  )
 }
 int istackPop( IntStack_t *stack )
 {
-    Node_t* cur;
+    Node2_t* cur;
     cur = stack->head;
     int a = cur->data;
     
@@ -84,7 +84,7 @@ int istackPop( IntStack_t *stack )
 
 int istackTop( IntStack_t stack )
 {
-    Node_t* cur = stack.head;
+    Node2_t* cur = stack.head;
     return cur->data;
     
     
@@ -92,7 +92,7 @@ int istackTop( IntStack_t stack )
 
 void istackDestroy( IntStack_t *stack )
 {
-    Node_t* cur;
+    Node2_t* cur;
     cur = stack->head;
     
     while(cur->next != NULL)

@@ -31,6 +31,7 @@ int precedence(char* token);
 // Experession Evaluator Functions
 Queue_t toPostfix(Queue_t infix_tokens);
 int evalExpr(Queue_t postfix_tokens);
+int calcu(int a, int b, char op);
 
 
 //**********************
@@ -234,8 +235,52 @@ Queue_t toPostfix(Queue_t infix_tokens)
 // POST: returns the result of evaluating the post-fix expression.
 int evalExpr(Queue_t expression)
 {
-
-	printf("NOT IMPLEMENTED YET -- that's your job ;-)\n");
-	return -1;  // STUB
-
+	int a;
+	int b;
+	int answer;
+	IntStack_t stack = istackCreate( );
+	
+	
+	while(!qIsEmpty(expression))
+	{
+		char* cur = qDequeue(&expression);
+		if (isOperand(cur))
+		{
+			istackPush(&stack,operandValue(cur));
+		}
+		else
+		{
+			assert(isOperator(cur));
+			b = istackPop(&stack );
+		
+			a = istackPop(&stack);
+		
+			answer = calcu(a,b,symbol(cur));
+			istackPush(&stack,answer);
+		}
+	}
+	return istackTop(stack );
+}
+ 
+int calcu(int a, int b, char op)
+{
+	
+	if(op == '+')
+	{
+		return a+b;
+	}
+	else if(op == '-')
+	{
+		return a-b;
+	}
+	else if(op == '*')
+	{
+		return a*b;
+	}
+	else if(op == '/')
+	{
+		return a/b;
+	}
+	
+	
 }
